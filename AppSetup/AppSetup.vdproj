@@ -5956,15 +5956,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Squeeze It!"
-        "ProductCode" = "8:{AA2CFB1D-4218-49DA-A50E-F4225ECB8BA8}"
-        "PackageCode" = "8:{CEEF76B4-B976-40A5-B3D2-249096E316A5}"
+        "ProductCode" = "8:{11D15F5C-065F-4218-8B80-22CBB21BC308}"
+        "PackageCode" = "8:{EED111D8-C107-41B4-8A35-21AC2C4464F4}"
         "UpgradeCode" = "8:{309CB8A7-78A5-4157-B4E6-118B2C23B831}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.2"
         "Manufacturer" = "8:Fabio Botelho"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/fabiojbg"
@@ -6506,7 +6506,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D119F26261B24C03B6DA1ACD59C63EF8"
             {
-            "SourcePath" = "8:..\\Application\\obj\\Debug\\SqueezeIt.exe"
+            "SourcePath" = "8:"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_C20A15800AB0476B8BA81AD509B537E1"

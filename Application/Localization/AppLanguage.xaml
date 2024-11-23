@@ -17,8 +17,8 @@
     <system:String x:Key="btnCancelCompression_Caption">Cancel optimization...</system:String>
     <system:String x:Key="btnAdddFiles_Caption">Add images...</system:String>
     <system:String x:Key="groupBox_Settings_Caption">Optimization Settings</system:String>
-    <system:String x:Key="tgl_LosslessOn_Caption">Lossless Off</system:String>
-    <system:String x:Key="tgl_LosslessOff_Caption">Lossless On</system:String>
+    <system:String x:Key="tgl_LosslessOn_Caption">Lossless On</system:String>
+    <system:String x:Key="tgl_LosslessOff_Caption">Lossless Off</system:String>
     <system:String x:Key="tgl_LossLess_Tooltip">Use lossless compression. The Quality and Resize options are not available if this option is selected</system:String>
     <system:String x:Key="MessageBox_ConfirmOverwrite">You have chosen to override the original files.\r\nDo you want to continue</system:String>
     <system:String x:Key="MessageBox_ConfirmHeader">Overwritting confirmation</system:String>

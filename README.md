@@ -9,7 +9,7 @@ This simple app is capable of optimizing and reducing the dimensions of the imag
 
 This application is made for Windows and requires .NET Framework 4.8. The project includes an installer that is built when the solution is in Release mode. The installer will install .NET Framework 4.8 if necessary.
 
-Download it from Github releases - https://github.com/fabiojbg/Squeeze-It/releases/tag/1.0.1
+Download it from Github releases - https://github.com/fabiojbg/Squeeze-It/releases
 
 
 
