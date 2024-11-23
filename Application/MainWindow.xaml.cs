@@ -18,6 +18,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Reflection;
 
 namespace SqueezeIt
 {
@@ -38,6 +39,7 @@ namespace SqueezeIt
             btnCompressSelected.Visibility = Visibility.Hidden;
             btnCancelCompression.Visibility = Visibility.Hidden;
             gridItems.CollectionChanged += new NotifyCollectionChangedEventHandler(gridFiles_CollectionChanged);
+            this.Title = $"Squeeze It! Image Compressor ({Assembly.GetExecutingAssembly().GetName().Version.ToString()})";
         }
 
         private void btnAddFiles_Click(object sender, RoutedEventArgs e)
