@@ -153,7 +153,7 @@ namespace SqueezeIt
             if (_compressConfig.UseLossLess)
                 pars += "_Lossless";
 
-            pars += "_" + compressionType[_compressConfig.CompressionType];
+            pars += "_" + compressionType[_compressConfig.CompressionType-1];
 
             if (!_compressConfig.UseLossLess)
             {
