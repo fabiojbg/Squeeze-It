@@ -1,0 +1,60 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:SqueezeIt.Localization"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="grdHeader_File">File</system:String>
+    <system:String x:Key="grdHeader_FileSize">File Size</system:String>
+    <system:String x:Key="grdHeader_Result">Result</system:String>
+    <system:String x:Key="grdHeader_Reduction">Reduction</system:String>
+    <system:String x:Key="grdHeader_NewDimensions">New Dimension</system:String>
+    <system:String x:Key="grdHeader_NewFileSize">New File Size</system:String>
+    <system:String x:Key="grdHeader_ImgDimensions">Dimension</system:String>
+    <system:String x:Key="tgl_OverwriteOriginal">Overwrite Original</system:String>
+    <system:String x:Key="tgl_On">On</system:String>
+    <system:String x:Key="tgl_Off">Off</system:String>
+    <system:String x:Key="btnRemoveSelected_Caption">Remove selected</system:String>
+    <system:String x:Key="btnCompress_Caption">Optimize !!!</system:String>
+    <system:String x:Key="btnCancelCompression_Caption">Cancel optimization...</system:String>
+    <system:String x:Key="btnAdddFiles_Caption">Add images...</system:String>
+    <system:String x:Key="groupBox_Settings_Caption">Optimization Settings</system:String>
+    <system:String x:Key="tgl_LosslessOn_Caption">Lossless Off</system:String>
+    <system:String x:Key="tgl_LosslessOff_Caption">Lossless On</system:String>
+    <system:String x:Key="tgl_LossLess_Tooltip">Use lossless compression. The Quality and Resize options are not available if this option is selected</system:String>
+    <system:String x:Key="MessageBox_ConfirmOverwrite">You have chosen to override the original files.\r\nDo you want to continue</system:String>
+    <system:String x:Key="MessageBox_ConfirmHeader">Overwritting confirmation</system:String>
+    <system:String x:Key="Result_Enqueued">Enqueued</system:String>
+    <system:String x:Key="Result_Processing">Processing...</system:String>
+    <system:String x:Key="Result_Error">Error</system:String>
+    <system:String x:Key="Result_Ok">Ok</system:String>
+    <system:String x:Key="Result_OkOverwrite">Ok. New file = {0}</system:String>
+    <system:String x:Key="Result_ErrorWithException">Error:  {0}</system:String>
+    <system:String x:Key="Result_Cancelled">Cancelled</system:String>
+    <system:String x:Key="ResizeWarning">The width and height will be changed but the proportions of the image (aspect ratio) will be preserved</system:String>
+    <system:String x:Key="CompressRation_Low">Low</system:String>
+    <system:String x:Key="CompressRation_Best">Best</system:String>
+    <system:String x:Key="CompressRation_High">High</system:String>
+    <system:String x:Key="CompressRation_Medium">Medium</system:String>
+    <system:String x:Key="lblCompression_Caption">Compression</system:String>
+    <system:String x:Key="lblQuality_Caption">Quality</system:String>
+    <system:String x:Key="lblResize_Header">Resize To:</system:String>
+    <system:String x:Key="cmbResize_Option720p">Height = 720p (HD)</system:String>
+    <system:String x:Key="cmbResize_Option1440p">Height = 1440p (2K)</system:String>
+    <system:String x:Key="cmbResize_Option1080p">Height = 1080p (Full HD)</system:String>
+    <system:String x:Key="cmbResize_Option50">50% - Reduces pixels to 1/4</system:String>
+    <system:String x:Key="cmbResize_Option35">35% - Reduces pixels to 1/8</system:String>
+    <system:String x:Key="cmbResize_Option25">25% - Reduces pixels to 1/16</system:String>
+    <system:String x:Key="cmbResize_Option100">100% - No change</system:String>
+    <system:String x:Key="cmbResize_Option70">70% - Reduces pixels to half</system:String>
+    <system:String x:Key="cmbResize_Option80">80% -Reduces pixels to 2/3</system:String>
+    <system:String x:Key="cmbResize_Option2160p">Height = 2160p (4K)</system:String>
+    <system:String x:Key="tglOverwrite_Tootip">If On, the original image file will be overwritten, otherwise a copy will be generated with a number suffixed at the end of the file name</system:String>
+    <system:String x:Key="tgl_Yes">Yes</system:String>
+    <system:String x:Key="tgl_No">No</system:String>
+    <system:String x:Key="lblDropHere_Caption">Drop files here or use the "Add images..." button</system:String>
+    <system:String x:Key="AppTitle">Squeeze It! Image Optimizer</system:String>
+    <system:String x:Key="lblLanguage">Language:</system:String>
+    <system:String x:Key="cmbLang_EN">English</system:String>
+    <system:String x:Key="cmbLang_PT">Português (Brasil)</system:String>
+    <system:String x:Key="ctxmnu_OpenFileLocation">Open image folder</system:String>
+
+</ResourceDictionary>

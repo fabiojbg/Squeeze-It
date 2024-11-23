@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqueezeIt", "Application\SqueezeIt.csproj", "{46B370D8-2770-479C-B9F1-C89097718E07}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AppSetup", "AppSetup\AppSetup.vdproj", "{D07B2102-A383-4135-9D70-3BEE02DAC993}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46B370D8-2770-479C-B9F1-C89097718E07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46B370D8-2770-479C-B9F1-C89097718E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46B370D8-2770-479C-B9F1-C89097718E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46B370D8-2770-479C-B9F1-C89097718E07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D07B2102-A383-4135-9D70-3BEE02DAC993}.Debug|Any CPU.ActiveCfg = Release
+		{D07B2102-A383-4135-9D70-3BEE02DAC993}.Release|Any CPU.ActiveCfg = Release
+		{D07B2102-A383-4135-9D70-3BEE02DAC993}.Release|Any CPU.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F5DC859F-DCD7-4510-B605-2538FAC94FA6}
+	EndGlobalSection
+EndGlobal
