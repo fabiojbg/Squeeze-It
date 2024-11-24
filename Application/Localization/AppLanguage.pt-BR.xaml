@@ -17,8 +17,8 @@
     <system:String x:Key="btnCancelCompression_Caption">Cancelar otimização</system:String>
     <system:String x:Key="btnAdddFiles_Caption">Adicionar imagens...</system:String>
     <system:String x:Key="groupBox_Settings_Caption">Configurações de Otimização</system:String>
-    <system:String x:Key="tgl_LosslessOn_Caption">"Lossless" desabilitado</system:String>
-    <system:String x:Key="tgl_LosslessOff_Caption">"Lossless" habilitado</system:String>
+    <system:String x:Key="tgl_LosslessOn_Caption">"Lossless" habilitado</system:String>
+    <system:String x:Key="tgl_LosslessOff_Caption">"Lossless" desabilitado</system:String>
     <system:String x:Key="tgl_LossLess_Tooltip">Usar compressão sem perda. Nesse modo e qualidade e o redimensionamento não estarão disponíveis</system:String>
     <system:String x:Key="MessageBox_ConfirmOverwrite">Você escolheu sobreescrever os arquivos originais.\r\nDeseja continuar?</system:String>
     <system:String x:Key="MessageBox_ConfirmHeader">Confirmação de sobreescrita</system:String>
