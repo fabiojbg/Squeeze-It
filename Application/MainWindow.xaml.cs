@@ -298,10 +298,12 @@ namespace SqueezeIt
             if (newLanguage == "PT")
             {
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-BR");
+                cmbLang.SelectedIndex = 1;
             }
             else
             {
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+                cmbLang.SelectedIndex = 0;
             }
             Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture;
 
