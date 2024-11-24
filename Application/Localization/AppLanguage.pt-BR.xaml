@@ -30,10 +30,10 @@
     <system:String x:Key="Result_ErrorWithException">Erro: {0}</system:String>
     <system:String x:Key="Result_Cancelled">Cancelado</system:String>
     <system:String x:Key="ResizeWarning">A altura e a largura serão alterados mas a proporção da imagem (razão de aspecto) será preservada</system:String>
-    <system:String x:Key="CompressRation_Low">Baixo</system:String>
+    <system:String x:Key="CompressRation_Low">Baixa</system:String>
     <system:String x:Key="CompressRation_Best">Melhor</system:String>
     <system:String x:Key="CompressRation_High">Alta</system:String>
-    <system:String x:Key="CompressRation_Medium">Médio</system:String>
+    <system:String x:Key="CompressRation_Medium">Média</system:String>
     <system:String x:Key="lblCompression_Caption">Compressão</system:String>
     <system:String x:Key="lblQuality_Caption">Qualidade</system:String>
     <system:String x:Key="lblResize_Header">Redimensionar para:</system:String>

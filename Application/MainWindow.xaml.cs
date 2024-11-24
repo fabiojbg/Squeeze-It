@@ -240,12 +240,17 @@ namespace SqueezeIt
             if (CompressionText == null)
                 return;
 
+            adjustSlidCompressCaption(e.NewValue);
+        }
+
+        private void adjustSlidCompressCaption(double controlValue)
+        {
             CompressionText.Content = AppResources.CompressRation_Low;
-            if (e.NewValue >= 2)
+            if (controlValue >= 2)
                 CompressionText.Content = AppResources.CompressRation_Medium;
-            if (e.NewValue >= 3)
+            if (controlValue >= 3)
                 CompressionText.Content = AppResources.CompressRation_High;
-            if (e.NewValue >= 4)
+            if (controlValue >= 4)
                 CompressionText.Content = AppResources.CompressRation_Best;
         }
 
@@ -320,6 +325,8 @@ namespace SqueezeIt
             hNewFilesize.Header = AppResources.grdHeader_NewFileSize;
             hReduction.Header = AppResources.grdHeader_Reduction;
             hResult.Header = AppResources.grdHeader_Result;
+
+            adjustSlidCompressCaption(slidCompression.Value);
 
             this.Resources.MergedDictionaries.Add(dictLanguage);
         }
