@@ -825,6 +825,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_D5E8ABCF7928433B9DD4DDDAFA37BC2E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_D83F1F69478183EE46F1124E5CA8E102"
         "OwnerKey" = "8:_D119F26261B24C03B6DA1ACD59C63EF8"
         "MsmSig" = "8:_UNDEFINED"
@@ -917,6 +923,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_D119F26261B24C03B6DA1ACD59C63EF8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D5E8ABCF7928433B9DD4DDDAFA37BC2E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -5455,6 +5467,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D5E8ABCF7928433B9DD4DDDAFA37BC2E"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SqueezeIt.resources, Version=1.0.2.0, Culture=pt-BR, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_D5E8ABCF7928433B9DD4DDDAFA37BC2E"
+                    {
+                    "Name" = "8:SqueezeIt.resources.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\Application\\bin\\Release\\pt-BR\\SqueezeIt.resources.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4DF16FDCE69C43819EB8E83AC6E20F8C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D83F1F69478183EE46F1124E5CA8E102"
             {
             "AssemblyRegister" = "3:1"
@@ -5938,6 +5981,17 @@
                         {
                         }
                     }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_4DF16FDCE69C43819EB8E83AC6E20F8C"
+                    {
+                    "Name" = "8:pt-BR"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_F7AD6BD903FE4A1D8BFCD983D2365E34"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
         }
@@ -5957,7 +6011,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Squeeze It!"
         "ProductCode" = "8:{11D15F5C-065F-4218-8B80-22CBB21BC308}"
-        "PackageCode" = "8:{EED111D8-C107-41B4-8A35-21AC2C4464F4}"
+        "PackageCode" = "8:{2015C131-1125-45F7-85B2-711458DD6460}"
         "UpgradeCode" = "8:{309CB8A7-78A5-4157-B4E6-118B2C23B831}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -6506,7 +6560,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D119F26261B24C03B6DA1ACD59C63EF8"
             {
-            "SourcePath" = "8:"
+            "SourcePath" = "8:..\\Application\\obj\\Release\\SqueezeIt.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_C20A15800AB0476B8BA81AD509B537E1"

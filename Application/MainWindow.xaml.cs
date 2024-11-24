@@ -265,7 +265,7 @@ namespace SqueezeIt
         {
             System.Diagnostics.Process.Start(new ProcessStartInfo
             {
-                FileName = "https://github.com/fabiojbg",
+                FileName = "https://github.com/fabiojbg/Squeeze-It",
                 UseShellExecute = true
             });
         }
