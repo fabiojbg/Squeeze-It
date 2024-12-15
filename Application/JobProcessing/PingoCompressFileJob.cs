@@ -27,8 +27,10 @@ namespace SqueezeIt
             Debug.WriteLine($"CompressFile Start: {item}");
             item.Result = AppResources.Result_Processing;
 
-            // The command line application you want to run
-            string fileName = ".\\Tools\\pingo.exe"; // Replace with your application path
+            string currentPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            currentPath = System.IO.Path.GetDirectoryName(currentPath);
+            
+            string fileName = $"{currentPath}\\Tools\\pingo.exe"; // Replace with your application path
             string args = getPingoArgumentsUserConfigs(item, _compressConfig);
 
             var workPath = System.IO.Path.GetDirectoryName(item.FilePath);
@@ -72,13 +74,13 @@ namespace SqueezeIt
                     }
 
                     var fileInfo = new FileInfo(fileOutput);
-                    System.Drawing.Image img = System.Drawing.Image.FromFile(fileOutput);
-
-                    var dimensions = img.GetCorrectedDimensions();
-
-                    item.NewDimensions = $"{dimensions.width}x{dimensions.height}";
-                    item.NewFileSize = (float)fileInfo.Length / 1024F / 1024F;
-                    item.Reduction = (1 - item.NewFileSize.Value / item.FileSize) * 100;
+                    using (System.Drawing.Image img = System.Drawing.Image.FromFile(fileOutput))
+                    {
+                        var dimensions = img.GetCorrectedDimensions();
+                        item.NewDimensions = $"{dimensions.width}x{dimensions.height}";
+                        item.NewFileSize = (float)fileInfo.Length / 1024F / 1024F;
+                        item.Reduction = (1 - item.NewFileSize.Value / item.FileSize) * 100;
+                    }
 
                     if (_compressConfig.OverwriteOriginal)
                         item.Result = AppResources.Result_Ok;

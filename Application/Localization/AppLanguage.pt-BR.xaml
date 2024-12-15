@@ -52,8 +52,17 @@
     <system:String x:Key="tgl_No">Não</system:String>
     <system:String x:Key="lblDropHere_Caption">Arraste arquivos para esta área ou use o botão "Adicionar imagens..."</system:String>
     <system:String x:Key="AppTitle">SqueezeIt! Otimizador de Imagens</system:String>
-    <system:String x:Key="lblLanguage">Linguagem:</system:String>
+    <system:String x:Key="lblLanguage">Idioma:</system:String>
     <system:String x:Key="cmbLang_EN">English</system:String>
     <system:String x:Key="cmbLang_PT">Português (Brasil)</system:String>
     <system:String x:Key="ctxmnu_OpenFileLocation">Abrir pasta da imagem</system:String>
+    <system:String x:Key="AboutPopup_Title">Sobre</system:String>
+    <system:String x:Key="AboutPopup_Header">Squeeze It!</system:String>
+    <system:String x:Key="AboutPopup_Subtitle">Squeeze It! é um projeto de código aberto patrocinado por Fabio Botelho para ajudar as pessoas a otimizar suas imagens em sua própria máquina.</system:String>
+    <system:String x:Key="btnOk_Caption">Ok</system:String>
+    <system:String x:Key="mnuSettings_Caption">_Configurações...</system:String>
+    <system:String x:Key="mnuLang_Caption">_Idioma</system:String>
+    <system:String x:Key="mnuLang_English_Caption">_English</system:String>
+    <system:String x:Key="mnuLang_Portuguese_Caption">Português _Brasileiro</system:String>
+    <system:String x:Key="mnuAbout_Caption">_Sobre...</system:String>
 </ResourceDictionary>

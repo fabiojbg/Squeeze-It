@@ -56,5 +56,14 @@
     <system:String x:Key="cmbLang_EN">English</system:String>
     <system:String x:Key="cmbLang_PT">Português (Brasil)</system:String>
     <system:String x:Key="ctxmnu_OpenFileLocation">Open image folder</system:String>
+    <system:String x:Key="AboutPopup_Title">About</system:String>
+    <system:String x:Key="AboutPopup_Header">Squeeze It!</system:String>
+    <system:String x:Key="AboutPopup_Subtitle">Squeeze It! is an open-source project sponsored by Fabio Botelho to help people to optimize and reduce images in your local machine.</system:String>
+    <system:String x:Key="btnOk_Caption">Ok</system:String>
+    <system:String x:Key="mnuSettings_Caption">_Settings...</system:String>
+    <system:String x:Key="mnuLang_Caption">_Language</system:String>
+    <system:String x:Key="mnuLang_English_Caption">_English</system:String>
+    <system:String x:Key="mnuLang_Portuguese_Caption">Português _Brasileiro</system:String>
+    <system:String x:Key="mnuAbout_Caption">_About...</system:String>
 
 </ResourceDictionary>

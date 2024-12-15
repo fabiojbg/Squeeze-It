@@ -180,4 +180,7 @@
   <data name="grdHeader_Reduction" xml:space="preserve">
     <value>Redução</value>
   </data>
+  <data name="MainWindow_Title" xml:space="preserve">
+    <value>Squeeze It! Compressor de Imagens ({0})</value>
+  </data>
 </root>

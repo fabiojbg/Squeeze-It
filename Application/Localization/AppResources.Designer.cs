@@ -160,6 +160,15 @@ namespace SqueezeIt.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Squeeze It! Image Compressor ({0}).
+        /// </summary>
+        public static string MainWindow_Title {
+            get {
+                return ResourceManager.GetString("MainWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Overwritting confirmation.
         /// </summary>
         public static string MessageBox_ConfirmHeader {
@@ -169,7 +178,7 @@ namespace SqueezeIt.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You have chosen to override the original files.\r\nDo you want to continue.
+        ///   Looks up a localized string similar to You have chosen to override the original files.\r\nDo you want to continue?.
         /// </summary>
         public static string MessageBox_ConfirmOverwrite {
             get {

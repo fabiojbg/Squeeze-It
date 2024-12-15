@@ -8,76 +8,83 @@
         xmlns:rs="clr-namespace:SqueezeIt.Localization"
         mc:Ignorable="d"
         Icon="./Images/SqueezeIt - Logo.ico"
-        Title="{DynamicResource AppTitle}" Height="540
-                 " Width="900" MinWidth="920">
+        WindowStartupLocation="CenterScreen"
+        Title="{DynamicResource AppTitle}" Height="540" Width="900" MinWidth="920" MinHeight="500">
     <Grid>
-        <DataGrid Name="grdFiles" ItemsSource="{Binding}" Margin="13,146,13,68" AllowDrop="true"                
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" FontSize="12">
+                <MenuItem Header="{DynamicResource mnuSettings_Caption}" >
+                    <MenuItem Header="{DynamicResource mnuLang_Caption}" >
+                        <MenuItem Header="{DynamicResource mnuLang_English_Caption}" Name="mnuLang_English" 
+                                  IsCheckable="True"  
+                                  Click="mnuLang_Change_Click"/>
+                        <MenuItem Header="{DynamicResource mnuLang_Portuguese_Caption}" Name="mnuLang_Portuguese" 
+                                  IsCheckable="True"   
+                                  Click="mnuLang_Change_Click"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{DynamicResource mnuAbout_Caption}" Click="mnuAbout_Click" >
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <Grid Margin="0,20,0,0">
+            <DataGrid Name="grdFiles" ItemsSource="{Binding}" Margin="13,155,13,68" AllowDrop="true"                
                 AlternatingRowBackground="LightBlue" CanUserAddRows="false" CanUserDeleteRows="True" 
                 RenderTransformOrigin="0.5,0.5" AutoGenerateColumns="False" Drop="grdFiles_Drop" BorderThickness="1,1,1,1">
-            <DataGrid.Columns>
-                <DataGridTextColumn x:Name="hFile" Header="File" Width="180" Binding="{Binding FileName, Mode=TwoWay}">
-                </DataGridTextColumn>
-                <DataGridTextColumn x:Name="hFileSize"  Header="File Size" Width="85" Binding="{Binding FileSize, Mode=TwoWay, StringFormat={}{0:N3} Mb}"/>
-                <DataGridTextColumn x:Name="hImgDimensions" Header="Dimensions" Width="100" Binding="{Binding ImageDimensions, Mode=TwoWay}"/>
-                <DataGridTextColumn x:Name="hNewFilesize" Header="New File Size" Width="120" Binding="{Binding NewFileSize, Mode=TwoWay, StringFormat={}{0:N3} Mb}"/>
-                <DataGridTextColumn x:Name="hNewDimensions"  Header="New Dimensions" Width="135" Binding="{Binding NewDimensions, Mode=TwoWay}"/>
-                <DataGridTextColumn x:Name="hReduction" Header="Reduction" Width="90" Binding="{Binding Reduction, Mode=TwoWay, StringFormat={}{0:#0.0'%'}}"/>
-                <DataGridTextColumn x:Name="hResult"  Header="Result" Width="350" Binding="{Binding Result, Mode=TwoWay}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <mah:ToggleSwitch x:Name="toggleOverwriteOriginal" Header="{DynamicResource tgl_OverwriteOriginal}" 
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="hFile" Header="File" Width="180" Binding="{Binding FileName, Mode=TwoWay}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn x:Name="hFileSize"  Header="File Size" Width="85" Binding="{Binding FileSize, Mode=TwoWay, StringFormat={}{0:N3} Mb}"/>
+                    <DataGridTextColumn x:Name="hImgDimensions" Header="Dimensions" Width="100" Binding="{Binding ImageDimensions, Mode=TwoWay}"/>
+                    <DataGridTextColumn x:Name="hNewFilesize" Header="New File Size" Width="120" Binding="{Binding NewFileSize, Mode=TwoWay, StringFormat={}{0:N3} Mb}"/>
+                    <DataGridTextColumn x:Name="hNewDimensions"  Header="New Dimensions" Width="135" Binding="{Binding NewDimensions, Mode=TwoWay}"/>
+                    <DataGridTextColumn x:Name="hReduction" Header="Reduction" Width="90" Binding="{Binding Reduction, Mode=TwoWay, StringFormat={}{0:#0.0'%'}}"/>
+                    <DataGridTextColumn x:Name="hResult"  Header="Result" Width="350" Binding="{Binding Result, Mode=TwoWay}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <mah:ToggleSwitch x:Name="toggleOverwriteOriginal" Header="{DynamicResource tgl_OverwriteOriginal}" 
                           OffContent="{DynamicResource tgl_No}" OnContent="{DynamicResource tgl_Yes}" 
                           IsOn="False" Margin="755,83,0,0" VerticalAlignment="Top"  
                           ToolTip="{DynamicResource tglOverwrite_Tootip}" Width="130"/>
-        <Button x:Name="btnCompressSelected" Content="{DynamicResource btnCompress_Caption}" HorizontalAlignment="Left" Margin="380,0,0,11"  VerticalAlignment="Bottom" Width="152" Height="42" Click="btnCompressSelected_Click" FontSize="14"/>
-        <Button x:Name="btnCancelCompression" Content="{DynamicResource btnCancelCompression_Caption}" FontSize="12" HorizontalAlignment="Right" Margin="0,0,140,11" VerticalAlignment="Bottom" Width="192" Height="42" Click="btnCancelCompression_Click" RenderTransformOrigin="-0.311,0.405" Visibility="Visible"/>
+            <Button x:Name="btnOptimize" Content="{DynamicResource btnCompress_Caption}" HorizontalAlignment="Left" Margin="380,0,0,11"  VerticalAlignment="Bottom" Width="152" Height="42" Click="btnCompressSelected_Click" FontSize="14"/>
+            <Button x:Name="btnCancelCompression" Content="{DynamicResource btnCancelCompression_Caption}" FontSize="12" HorizontalAlignment="Right" Margin="0,0,140,11" VerticalAlignment="Bottom" Width="192" Height="42" Click="btnCancelCompression_Click" RenderTransformOrigin="-0.311,0.405" Visibility="Visible"/>
 
-        <Button x:Name="btnAddFiles" Content="{DynamicResource btnAdddFiles_Caption}" HorizontalAlignment="Left" Margin="15,98,0,0" VerticalAlignment="Top" Height="30" Width="154" 
+            <Button x:Name="btnAddFiles" Content="{DynamicResource btnAdddFiles_Caption}" HorizontalAlignment="Left" Margin="15,98,0,0" VerticalAlignment="Top" Height="30" Width="154" 
                FontSize="12" Click="btnAddFiles_Click" >
-        </Button>
-        <GroupBox x:Name="groupBox_Settings" Header="{DynamicResource groupBox_Settings_Caption}" FontSize="14px" Margin="182,11,0,0" Style="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="568">
-            <Grid Height="104" Margin="0,0,-2,0">
-                <mah:ToggleSwitch x:Name="chkUseLossless" Width="216" VerticalAlignment="Top" ToolTip="{DynamicResource tgl_LossLess_Tooltip}" Toggled="chkUseLossless_Click" 
+            </Button>
+            <GroupBox x:Name="groupBox_Settings" Header="{DynamicResource groupBox_Settings_Caption}" FontSize="14px" Margin="182,11,0,0" Style="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="568">
+                <Grid Height="104" Margin="0,0,-2,0">
+                    <mah:ToggleSwitch x:Name="chkUseLossless" Width="216" VerticalAlignment="Top" ToolTip="{DynamicResource tgl_LossLess_Tooltip}" Toggled="chkUseLossless_Click" 
                                   OnContent="{DynamicResource tgl_LosslessOn_Caption}" 
                                   OffContent="{DynamicResource tgl_LosslessOff_Caption}"  Margin="10,1,0,0" />
-                <mah:ContentControlEx  x:Name="CompressionText" Width="120" VerticalAlignment="Top" Margin="10,37,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" FontSize="14" Content="Best" ContentCharacterCasing="Upper"/>
-                <Slider x:Name="slidCompression"  Width="120" ValueChanged="slidCompress_ValueChanged" IsSnapToTickEnabled="True" Ticks="1,2,3,4"  VerticalAlignment="Top" Value="4" TickPlacement="TopLeft" SmallChange="1" Minimum="1" Maximum="4" Margin="14,57,0,0" HorizontalAlignment="Left"/>
-                <Label  x:Name="lblCompression" Content="{DynamicResource lblCompression_Caption}" VerticalAlignment="Top" Margin="14,72,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" FontSize="14" Width="116"/>
-                <mah:ContentControlEx  x:Name="QualityText"  Width="120" VerticalAlignment="Top" Margin="166,38,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" FontSize="14" Content="%" ContentCharacterCasing="Upper"/>
-                <Slider  x:Name="slidQuality" Width="120" ValueChanged="slidQuality_ValueChanged" IsSnapToTickEnabled="True" VerticalAlignment="Top" Value="80" TickPlacement="TopLeft" Ticks="60, 70, 80, 90, 100" Minimum="60" Maximum="100" Margin="166,57,0,0" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
-                <Label x:Name="lblQuality"   Content="{DynamicResource lblQuality_Caption}" VerticalAlignment="Top" Margin="166,72,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" FontSize="14" Width="120"/>
-                <Label x:Name="lblResize" Content="{DynamicResource lblResize_Header}" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="305,-9,0,0" VerticalAlignment="Top" FontSize="14" Width="160" />
-                <ComboBox x:Name="cmbResize" HorizontalAlignment="Left" Margin="305,20,0,0" VerticalAlignment="Top" Width="243" IsReadOnly="True" SelectedIndex="0" RenderTransformOrigin="0.048,0.453" SelectionChanged="cmbResize_SelectionChanged" FontSize="14">
-                    <ComboBoxItem Content="{DynamicResource cmbResize_Option100}"/>
-                    <ComboBoxItem Content="{DynamicResource cmbResize_Option80}"/>
-                    <ComboBoxItem Content="{DynamicResource cmbResize_Option70}"/>
-                    <ComboBoxItem Content="{DynamicResource cmbResize_Option50}"/>
-                    <ComboBoxItem Content="{DynamicResource cmbResize_Option35}"/>
-                    <ComboBoxItem Content="{DynamicResource cmbResize_Option25}"/>
-                    <ComboBoxItem Content="{DynamicResource cmbResize_Option720p}"/>
-                    <ComboBoxItem Content="{DynamicResource cmbResize_Option1080p}"/>
-                    <ComboBoxItem Content="{DynamicResource cmbResize_Option1440p}"/>
-                    <ComboBoxItem Content="{DynamicResource cmbResize_Option2160p}"/>
-                </ComboBox>
-                <TextBlock x:Name="txtResizeExplain" TextWrapping="WrapWithOverflow"   Margin="305,50,7,0" Height="31" FontSize="11" VerticalAlignment="Top" Text=""/>
-            </Grid>
-        </GroupBox>
-        <mah:ContentControlEx x:Name="lblDropHere" Content="{DynamicResource lblDropHere_Caption}" HorizontalAlignment="Left" Margin="36,196,0,0" VerticalAlignment="Top" Width="828" FontSize="20" AllowDrop="True" Drop="grdFiles_Drop"/>
-        <Button x:Name="btnDonate" HorizontalAlignment="Right" Cursor="Hand" Margin="0,0,0,7" VerticalAlignment="Bottom" Width="113" BorderThickness="0,0,0,0" ClipToBounds="True" SnapsToDevicePixels="True" Opacity="0.99" Background="{x:Null}" Height="42" Click="btnDonate_Click">
-            <Image x:Name="imgDonate" Source="\Images\btn_donateCC_LG.gif"/>
-        </Button>
-        <Button x:Name="btnGithub" HorizontalAlignment="Right" Cursor="Hand" Margin="0,0,10,468" VerticalAlignment="Top" Width="113" BorderThickness="0,0,0,0" SnapsToDevicePixels="False" Opacity="1" Background="{x:Null}" Height="42" Click="btnGithub_Click">
-            <StackPanel Orientation="Horizontal">
-                <Label Height="21">See me on</Label>
-                <Image x:Name="imgGitHub" Source="\Images\github-mark.png"/>
-            </StackPanel>
-        </Button>
-        <Label x:Name="lblLanguage" Content="{DynamicResource lblLanguage}" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" FontSize="12" Width="96" />
-        <ComboBox x:Name="cmbLang" HorizontalAlignment="Left" Margin="13,33,0,0" VerticalAlignment="Top" Width="156" IsReadOnly="True" SelectedIndex="0" RenderTransformOrigin="0.048,0.453" FontSize="12" SelectionChanged="cmbLang_SelectionChanged">
-            <ComboBoxItem Content="{DynamicResource cmbLang_EN}"/>
-            <ComboBoxItem Content="{DynamicResource cmbLang_PT}"/>
-        </ComboBox>
+                    <Label  x:Name="lblCompression" Content="{DynamicResource lblCompression_Caption}" VerticalAlignment="Top" Margin="14,36,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" FontSize="14" Width="116"/>
+                    <Slider x:Name="slidCompression"  Width="120" ValueChanged="slidCompress_ValueChanged" IsSnapToTickEnabled="True" Ticks="1,2,3,4"  VerticalAlignment="Top" Value="4" TickPlacement="BottomRight" SmallChange="1" Minimum="1" Maximum="4" Margin="14,61,0,0" HorizontalAlignment="Left"/>
+                    <mah:ContentControlEx  x:Name="CompressionText" Width="120" VerticalAlignment="Top" Margin="10,86,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" FontSize="14" Content="Best" ContentCharacterCasing="Upper"/>
 
+                    <Label x:Name="lblQuality"   Content="{DynamicResource lblQuality_Caption}" VerticalAlignment="Top" Margin="166,36,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" FontSize="14" Width="120"/>
+                    <Slider  x:Name="slidQuality" Width="120" ValueChanged="slidQuality_ValueChanged" IsSnapToTickEnabled="True" VerticalAlignment="Top" Value="80" TickPlacement="BottomRight" Ticks="60, 70, 80, 90, 100" Minimum="60" Maximum="100" Margin="166,61,0,0" HorizontalAlignment="Left"/>
+                    <mah:ContentControlEx  x:Name="QualityText"  Width="120" VerticalAlignment="Top" Margin="166,86,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" FontSize="14" Content="%" ContentCharacterCasing="Upper"/>
+
+                    <Label x:Name="lblResize" Content="{DynamicResource lblResize_Header}" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="305,-9,0,0" VerticalAlignment="Top" FontSize="14" Width="160" />
+                    <ComboBox x:Name="cmbResize" HorizontalAlignment="Left" Margin="305,20,0,0" VerticalAlignment="Top" Width="243" IsReadOnly="True" SelectedIndex="0" RenderTransformOrigin="0.048,0.453" SelectionChanged="cmbResize_SelectionChanged" FontSize="14">
+                        <ComboBoxItem Content="{DynamicResource cmbResize_Option100}"/>
+                        <ComboBoxItem Content="{DynamicResource cmbResize_Option80}"/>
+                        <ComboBoxItem Content="{DynamicResource cmbResize_Option70}"/>
+                        <ComboBoxItem Content="{DynamicResource cmbResize_Option50}"/>
+                        <ComboBoxItem Content="{DynamicResource cmbResize_Option35}"/>
+                        <ComboBoxItem Content="{DynamicResource cmbResize_Option25}"/>
+                        <ComboBoxItem Content="{DynamicResource cmbResize_Option720p}"/>
+                        <ComboBoxItem Content="{DynamicResource cmbResize_Option1080p}"/>
+                        <ComboBoxItem Content="{DynamicResource cmbResize_Option1440p}"/>
+                        <ComboBoxItem Content="{DynamicResource cmbResize_Option2160p}"/>
+                    </ComboBox>
+                    <TextBlock x:Name="txtResizeExplain" TextWrapping="WrapWithOverflow"   Margin="305,50,7,0" FontSize="11" VerticalAlignment="Top" Text=""/>
+                </Grid>
+            </GroupBox>
+            <mah:ContentControlEx x:Name="lblDropHere" Content="{DynamicResource lblDropHere_Caption}" HorizontalAlignment="Left" Margin="36,196,0,0" VerticalAlignment="Top" Width="828" FontSize="20" AllowDrop="True" Drop="grdFiles_Drop"/>
+
+        </Grid>
     </Grid>
 
     <Window.Resources>

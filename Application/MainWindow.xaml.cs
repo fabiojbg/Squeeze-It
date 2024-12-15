@@ -19,6 +19,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Reflection;
+using SqueezeIt.Services;
 
 namespace SqueezeIt
 {
@@ -30,16 +31,13 @@ namespace SqueezeIt
         {
             InitializeComponent();
 
-            if( Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName.StartsWith("pt") )
-                switchLanguage("PT");
-            else
-                switchLanguage("EN");
+            switchLanguage(AppSettings.UILanguage);
 
             grdFiles.DataContext = gridItems;
-            btnCompressSelected.Visibility = Visibility.Hidden;
+            btnOptimize.IsEnabled = false;
             btnCancelCompression.Visibility = Visibility.Hidden;
             gridItems.CollectionChanged += new NotifyCollectionChangedEventHandler(gridFiles_CollectionChanged);
-            this.Title = $"Squeeze It! Image Compressor ({Assembly.GetExecutingAssembly().GetName().Version.ToString()})";
+            this.Title = String.Format(AppResources.MainWindow_Title, Assembly.GetExecutingAssembly().GetName().Version.ToString());
         }
 
         private void btnAddFiles_Click(object sender, RoutedEventArgs e)
@@ -64,7 +62,7 @@ namespace SqueezeIt
 
         private void gridFiles_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            btnCompressSelected.Visibility = gridItems.Any() ? Visibility.Visible : Visibility.Hidden;
+            btnOptimize.IsEnabled = gridItems.Any();
             lblDropHere.Visibility = gridItems.Any() ? Visibility.Hidden : Visibility.Visible;
         }
 
@@ -126,7 +124,7 @@ namespace SqueezeIt
                 };
                 gridItems.Add(newItem);
             }
-            btnCompressSelected.Visibility = gridItems.Any() ? Visibility.Visible : Visibility.Hidden;
+            btnOptimize.IsEnabled = gridItems.Any();
             lblDropHere.Visibility = gridItems.Any() ? Visibility.Hidden : Visibility.Visible;
         }
 
@@ -164,7 +162,7 @@ namespace SqueezeIt
             var cancellationToken = CTS.Token;
 
             btnCancelCompression.Visibility = Visibility.Visible;
-            btnCompressSelected.IsEnabled = false;
+            btnOptimize.IsEnabled = false;
             btnAddFiles.IsEnabled = false;
 
             var compressConfig = GetCompressConfigFromForm();
@@ -181,7 +179,7 @@ namespace SqueezeIt
                     Thread.Sleep(200);
 
                 btnCancelCompression.Visibility = Visibility.Hidden;
-                btnCompressSelected.IsEnabled = true;
+                btnOptimize.IsEnabled = true;
                 btnAddFiles.IsEnabled = true;
                 CTS.Dispose();
                 Debug.WriteLine($"Queue Continuewith End");
@@ -279,35 +277,24 @@ namespace SqueezeIt
             });
         }
 
-        private void cmbLang_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (!(e.Source is ComboBox)) return;
-
-            var cmbLanguage = e.Source as ComboBox;
-
-            switch (cmbLanguage.SelectedIndex)
-            {
-                case 1: switchLanguage("PT"); break;
-                default: switchLanguage("EN"); break;
-            }
-
-        }
-
+        ResourceDictionary dictLanguage = new ResourceDictionary();
         private void switchLanguage(string newLanguage)
         {
+            AppSettings.UILanguage = newLanguage;
             if (newLanguage == "PT")
             {
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo("pt-BR");
-                cmbLang.SelectedIndex = 1;
+                mnuLang_English.IsChecked = false;
+                mnuLang_Portuguese.IsChecked = true;
             }
             else
             {
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-                cmbLang.SelectedIndex = 0;
+                mnuLang_English.IsChecked = true;
+                mnuLang_Portuguese.IsChecked = false;
             }
             Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture;
 
-            var dictLanguage = new ResourceDictionary();
             switch (newLanguage)
             {
                 case "PT":
@@ -331,6 +318,23 @@ namespace SqueezeIt
             adjustSlidCompressCaption(slidCompression.Value);
 
             this.Resources.MergedDictionaries.Add(dictLanguage);
+        }
+
+        private void mnuAbout_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new AboutDialog();
+            dialog.Resources.MergedDictionaries.Add(dictLanguage);
+            dialog.ShowDialog();
+
+        }
+
+        private void mnuLang_Change_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender == mnuLang_English)
+                switchLanguage("EN");
+            if (sender == mnuLang_Portuguese)
+                switchLanguage("PT");
+
         }
     }
 }
