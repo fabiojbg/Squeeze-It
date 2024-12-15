@@ -7,10 +7,10 @@
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_ControlzEx.dll" Value="..\packages\ControlzEx.4.4.0\lib\net462"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_MahApps.Metro.dll" Value="..\packages\MahApps.Metro.2.4.10\lib\net47"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Xaml.Behaviors.dll" Value="..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SqueezeIt.exe" Value="..\Application\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SqueezeIt.exe.config" Value="..\Application\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SqueezeIt.resources.dll" Value="..\Application\bin\Debug\pt-BR"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_pingo.exe" Value="..\Application\bin\Debug\Tools"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SqueezeIt.exe" Value="..\Application\bin\Release"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SqueezeIt.exe.config" Value="..\Application\bin\Release"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SqueezeIt.resources.dll" Value="..\Application\bin\Release\pt-BR"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_pingo.exe" Value="..\Application\bin\Release\Tools"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_CommonServiceLocator.dll" Value="CommonServiceLocator.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_ControlzEx.dll" Value="ControlzEx.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_MahApps.Metro.dll" Value="MahApps.Metro.dll"/>
@@ -26,7 +26,6 @@
     <ROW Property="ARPNOMODIFY" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="ARPPRODUCTICON" Value="SqueezeItLogo.exe" Type="8"/>
     <ROW Property="ARPURLINFOABOUT" Value="https://github.com/fabiojbg/Squeeze-It"/>
-    <ROW Property="IAgree" Value="No" Type="4"/>
     <ROW Property="Manufacturer" Value="Fabio Botelho"/>
     <ROW Property="ProductCode" Value="1033:{79F665F9-697E-435F-BE4B-8D54C0593C0A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
@@ -104,8 +103,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
     <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
-    <ROW Fragment="InstallDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\InstallDlg.aip"/>
-    <ROW Fragment="LicenseAgreementDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\LicenseAgreementDlg.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
     <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
     <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
     <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
@@ -122,16 +120,13 @@
     <ROW Name="SoftwareDetector.dll" SourcePath="&lt;AI_CUSTACTS&gt;SoftwareDetector.dll"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
   </COMPONENT>
-  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
-    <ROW Dialog_="LicenseAgreementDlg" Control="AgreementText" Type="ScrollableText" X="20" Y="60" Width="330" Height="120" Attributes="7" Order="400" TextLocId="Control.Text.LicenseAgreementDlg#AgreementText" MsiKey="LicenseAgreementDlg#AgreementText"/>
-  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
-    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="InstallDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
     <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
     <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
     <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="203"/>
     <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
-    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="InstallDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
     <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
     <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
     <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
@@ -146,12 +141,8 @@
     <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
     <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
     <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="204"/>
-    <ROW Dialog_="InstallDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
-    <ROW Dialog_="InstallDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
-    <ROW Dialog_="InstallDlg" Control_="Hyperlink" Event="NewDialog" Argument="LicenseAgreementDlg" Condition="AI_INSTALL AND ReadLicense" Ordering="201"/>
-    <ROW Dialog_="LicenseAgreementDlg" Control_="Back" Event="NewDialog" Argument="InstallDlg" Condition="AI_INSTALL AND ReadLicense" Ordering="1"/>
-    <ROW Dialog_="LicenseAgreementDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL AND ReadLicense" Ordering="1"/>
-    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="LicenseAgreementDlg" Condition="AI_INSTALL AND ReadLicense" Ordering="202"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
     <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
