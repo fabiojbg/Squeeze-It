@@ -316,6 +316,7 @@ namespace SqueezeIt
             hResult.Header = AppResources.grdHeader_Result;
 
             adjustSlidCompressCaption(slidCompression.Value);
+            QualityText.Content = slidQuality.Value.ToString() + "%";
 
             this.Resources.MergedDictionaries.Add(dictLanguage);
         }
